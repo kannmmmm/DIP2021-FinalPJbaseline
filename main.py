@@ -220,4 +220,6 @@ def main():
 
 
 if __name__ == '__main__':
+    print(torch.cuda.device_count())
+    print(torch.cuda.is_available())
     main()
