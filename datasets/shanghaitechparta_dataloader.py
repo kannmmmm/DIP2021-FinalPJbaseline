@@ -42,9 +42,9 @@ class CrowdDataset(torch.utils.data.Dataset):
         if self.label_main_transform is not None:
             img, dmap = self.label_main_transform((img, dmap))
         if self.label_img_transform is not None:
-            img = self.label_img_transform(img)
+            img = self.label_img_transform(np.array(img))
         if self.label_dmap_transform is not None:
-            dmap = self.label_dmap_transform(dmap)
+            dmap = self.label_dmap_transform(np.array(dmap))
 
         return {'image': img, 'densitymap': dmap, 'imagepath': labeled_image_filename}
 
