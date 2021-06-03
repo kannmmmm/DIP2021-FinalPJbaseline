@@ -2,5 +2,9 @@
 /ShanghaiTech_Crowd_Counting_Dataset
 /CrowdCountingDatasets
 /paper
+/home/featurize/work/DIP2021-FinalPJbaseline/CrowdCountingDatasets/ShanghaiTechPartA/fullresolution/origin/Test
+/home/featurize/work/DIP2021-FinalPJbaseline/CrowdCountingDatasets/ShanghaiTechPartA/fullresolution/origin/Test_gt
+/home/featurize/work/DIP2021-FinalPJbaseline/CrowdCountingDatasets/ShanghaiTechPartA/fullresolution/origin/Train
+/home/featurize/work/DIP2021-FinalPJbaseline/CrowdCountingDatasets/ShanghaiTechPartA/fullresolution/origin/Train_gt
 *.Kanmm
 *.pth

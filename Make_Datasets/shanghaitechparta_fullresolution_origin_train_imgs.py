@@ -112,10 +112,10 @@ def main(image_root_path, image_gt_path, image_save_path, image_gt_save_path):
 
 
 if __name__ == '__main__':
-    image_root_path = '/home/mist/DIP2021-FinalPJbaseline/ShanghaiTech_Crowd_Counting_Dataset/part_A_final/train_data/images'
-    image_gt_path = '/home/mist/DIP2021-FinalPJbaseline/ShanghaiTech_Crowd_Counting_Dataset/part_A_final/train_data/ground_truth'
-    image_save_path = '/home/mist/DIP2021-FinalPJbaseline/CrowdCountingDatasets/ShanghaiTechPartA/fullresolution/origin/Train/'
-    image_gt_save_path = '/home/mist/DIP2021-FinalPJbaseline/CrowdCountingDatasets/ShanghaiTechPartA/fullresolution/origin/Train_gt'
+    image_root_path = '/home/featurize/data/part_A_final/train_data/images'
+    image_gt_path = '/home/featurize/data/part_A_final/train_data/ground_truth'
+    image_save_path = '/home/featurize/work/DIP2021-FinalPJbaseline/CrowdCountingDatasets/ShanghaiTechPartA/fullresolution/origin/Train/'
+    image_gt_save_path = '/home/featurize/work/DIP2021-FinalPJbaseline/CrowdCountingDatasets/ShanghaiTechPartA/fullresolution/origin/Train_gt'
 
     # image_root_path = 'D:/year3/DIP2021-FinalPJbaseline/ShanghaiTech_Crowd_Counting_Dataset/part_A_final/train_data/images'
     # image_gt_path = 'D:/year3/DIP2021-FinalPJbaseline/ShanghaiTech_Crowd_Counting_Dataset/part_A_final/train_data/ground_truth'
@@ -124,10 +124,10 @@ if __name__ == '__main__':
 
     main(image_root_path, image_gt_path, image_save_path, image_gt_save_path)
 
-    image_root_path = '/home/mist/DIP2021-FinalPJbaseline/ShanghaiTech_Crowd_Counting_Dataset/part_A_final/test_data/images'
-    image_gt_path = '/home/mist/DIP2021-FinalPJbaseline/ShanghaiTech_Crowd_Counting_Dataset/part_A_final/test_data/ground_truth'
-    image_save_path = '/home/mist/DIP2021-FinalPJbaseline/CrowdCountingDatasets/ShanghaiTechPartA/fullresolution/origin/Test/'
-    image_gt_save_path = '/home/mist/DIP2021-FinalPJbaseline/CrowdCountingDatasets/ShanghaiTechPartA/fullresolution/origin/Test_gt'
+    image_root_path = '//home/featurize/data/part_A_final/test_data/images'
+    image_gt_path = '/home/featurize/data/part_A_final/test_data/ground_truth'
+    image_save_path = '/home/featurize/work/DIP2021-FinalPJbaseline/CrowdCountingDatasets/ShanghaiTechPartA/fullresolution/origin/Test/'
+    image_gt_save_path = '/home/featurize/work/DIP2021-FinalPJbaseline/CrowdCountingDatasets/ShanghaiTechPartA/fullresolution/origin/Test_gt'
 
     # image_root_path = 'D:/year3/DIP2021-FinalPJbaseline/ShanghaiTech_Crowd_Counting_Dataset/part_A_final/train_data/images'
     # image_gt_path = 'D:/year3/DIP2021-FinalPJbaseline/ShanghaiTech_Crowd_Counting_Dataset/part_A_final/train_data/ground_truth'
