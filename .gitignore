@@ -1,4 +1,6 @@
 
 /ShanghaiTech_Crowd_Counting_Dataset
 /CrowdCountingDatasets
+/paper
 *.Kanmm
+*.pth

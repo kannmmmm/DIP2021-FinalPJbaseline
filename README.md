@@ -52,7 +52,7 @@ python main.py --dataset shanghaitechpa \
 
 run the following command.
 ```
-python test.py --test-files /home/jqgao/workspace/CrowdCounting/TrainingTestingFileLists/ShanghaiTechPartA_full_origin_test.txt --best-model /home/jqgao/workspace/DIP2021/checkpoints/demo/bestvalmodel.pth
+python test.py --test-files /home/featurize/work/DIP2021-FinalPJbaseline/CrowdCounting/TrainingTestingFileLists/ShanghaiTechPartA_full_origin_test.txt --best-model /home/featurize/work/DIP2021-FinalPJbaseline/checkpoints/demo/bestvalmodel.pth
 ```
 
 # NWPU-Crowd Contest Platform
