@@ -1,7 +1,7 @@
 python main.py --dataset shanghaitechpa \
 --model CSRNet \
---train-files /home/mist/DIP2021-FinalPJbaseline/TrainingTestingFileLists/ShanghaiTechPartA_full_origin_train.txt \
---val-files /home/mist/DIP2021-FinalPJbaseline/TrainingTestingFileLists/ShanghaiTechPartA_full_origin_val.txt \
+--train-files /home/featurize/work/DIP2021-FinalPJbaseline/TrainingTestingFileLists/ShanghaiTechPartA_full_origin_train.txt \
+--val-files /home/featurize/work/DIP2021-FinalPJbaseline/TrainingTestingFileLists/ShanghaiTechPartA_full_origin_val.txt \
 --gpu-devices 4 \
 --lr 1e-5 \
 --train-batch 1 \

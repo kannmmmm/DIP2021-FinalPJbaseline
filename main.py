@@ -206,11 +206,11 @@ def main():
                         'epoch': epoch
                     }, os.path.join(args.checkpoints, "bestvalmodel.pth"))
 
-                # if epoch % 50 == 0:
-                #     torch.save({
-                #         'state_dict': model.state_dict(),
-                #         'epoch': epoch
-                #     }, os.path.join(args.checkpoints, str(epoch) + ".pth"))
+                if epoch % 20 == 0:
+                    torch.save({
+                        'state_dict': model.state_dict(),
+                        'epoch': epoch
+                    }, os.path.join(args.checkpoints, str(epoch) + ".pth"))
 
                 writer.add_scalar('Val_MAE', epoch_mae, epoch)
                 print("epoch: ", epoch, " bestmae: ", min_mae, "testmae: ", epoch_mae, " testrmse: ", epoch_rmse_loss)
