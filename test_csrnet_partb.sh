@@ -1,0 +1,1 @@
+python test.py --test-files /home/featurize/work/DIP2021-FinalPJbaseline/TrainingTestingFileLists/ShanghaiTechPartB_full_origin_test.txt --best-model /home/featurize/work/DIP2021-FinalPJbaseline/checkpoints/demo/partb.pth

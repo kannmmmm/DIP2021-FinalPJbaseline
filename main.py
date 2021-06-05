@@ -19,6 +19,7 @@ from optimizers.optimizers import init_optim
 from models.CSRNet import CSRNet
 
 from datasets.shanghaitechparta_dataloader import get_train_shanghaitechpartA_dataloader, get_test_shanghaitechpartA_dataloader
+from datasets.shanghaitechpartb_dataloader import get_train_shanghaitechpartB_dataloader, get_test_shanghaitechpartB_dataloader
 
 # from loss.MixLoss import MixLoss
 # from pytorch_ssim import SSIM
@@ -132,6 +133,9 @@ def main():
     elif args.dataset == 'ucfqnrf':
         train_loader = "your dataloader"
         val_loader = "your dataloader"
+    elif args.dataset == 'shanghaitechpb':
+        train_loader = get_train_shanghaitechpartB_dataloader(labeled_file_list=args.train_files, use_flip=True, batch_size=args.train_batch)
+        val_loader = get_test_shanghaitechpartB_dataloader(file_list=args.val_files)
     else:
         pass
 
@@ -204,7 +208,7 @@ def main():
                     torch.save({
                         'state_dict': model.state_dict(),
                         'epoch': epoch
-                    }, os.path.join(args.checkpoints, "bestvalmodel.pth"))
+                    }, os.path.join(args.checkpoints, "partb.pth"))
 
                 if epoch % 20 == 0:
                     torch.save({
