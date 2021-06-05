@@ -114,16 +114,16 @@ def main(image_root_path, image_gt_path, image_save_path, image_gt_save_path):
 
 
 if __name__ == '__main__':
-    image_root_path = '/mnt/pami14/jqgao/ShanghaiTech_Crowd_Counting_Dataset/part_B_final/train_data/images'
-    image_gt_path = '/mnt/pami14/jqgao/ShanghaiTech_Crowd_Counting_Dataset/part_B_final/train_data/mats'
-    image_save_path = '/mnt/pami23/jqgao/CrowdCountingDatasets/ShanghaiTechPartB/fullresolution/origin/Train/'
-    image_gt_save_path = '/mnt/pami23/jqgao/CrowdCountingDatasets/ShanghaiTechPartB/fullresolution/origin/Train_gt'
+    image_root_path = '/home/featurize/data/part_B_final/train_data/images'
+    image_gt_path = '/home/featurize/data/part_B_final/train_data/ground_truth'
+    image_save_path = '/home/featurize/data/part_b/Train'
+    image_gt_save_path = '/home/featurize/data/part_b/Train_gt'
 
     main(image_root_path, image_gt_path, image_save_path, image_gt_save_path)
 
-    image_root_path = '/mnt/pami14/jqgao/ShanghaiTech_Crowd_Counting_Dataset/part_B_final/test_data/images'
-    image_gt_path = '/mnt/pami14/jqgao/ShanghaiTech_Crowd_Counting_Dataset/part_B_final/test_data/mats'
-    image_save_path = '/mnt/pami23/jqgao/CrowdCountingDatasets/ShanghaiTechPartB/fullresolution/origin/Test/'
-    image_gt_save_path = '/mnt/pami23/jqgao/CrowdCountingDatasets/ShanghaiTechPartB/fullresolution/origin/Test_gt'
+    image_root_path = '/home/featurize/data/part_B_final/test_data/images'
+    image_gt_path = '/home/featurize/data/part_B_final/test_data/ground_truth'
+    image_save_path = '/home/featurize/data/part_b/Test'
+    image_gt_save_path = '/home/featurize/data/part_b/Test_gt'
 
     main(image_root_path, image_gt_path, image_save_path, image_gt_save_path)

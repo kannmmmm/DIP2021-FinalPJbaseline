@@ -1,0 +1,10 @@
+mkdir /home/featurize/data/part_b \
+mkdir /home/featurize/data/part_a \
+mkdir /home/featurize/data/part_b/Test \
+mkdir /home/featurize/data/part_b/Test_gt \
+mkdir /home/featurize/data/part_b/Train \
+mkdir /home/featurize/data/part_b/Train_gt \
+mkdir /home/featurize/data/part_a/Test \
+mkdir /home/featurize/data/part_a/Test_gt \
+mkdir /home/featurize/data/part_a/Train \
+mkdir /home/featurize/data/part_a/Train_gt \

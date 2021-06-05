@@ -193,13 +193,13 @@ if __name__ == '__main__':
     batch_size = 1
     # train_file_list = '/home/jqgao/workspace/CrowdCounting/TrainingTestingFileLists/shanghaitechpartB_full_origin_train.txt'
     # val_file_list = '/home/jqgao/workspace/CrowdCounting/TrainingTestingFileLists/shanghaitechpartB_full_origin_val.txt'
-    # test_file_list = '/home/jqgao/workspace/CrowdCounting/TrainingTestingFileLists/shanghaitechpartB_full_origin_test.txt'
+    test_file_list = '/home/featurize/work/DIP2021-FinalPJbaseline/TrainingTestingFileLists/ShanghaiTechPartB_full_origin_test.txt'
     # train_dataloader = get_train_shanghaitechpartB_dataloader(labeled_file_list=train_file_list, use_flip=True, batch_size=1)
     # val_dataloader = get_test_shanghaitechpartB_dataloader(file_list=val_file_list)
 
     # train_file_list = 'D:/year3/DIP2021-FinalPJbaseline/TrainingTestingFileLists/shanghaitechpartB_full_origin_train.txt'
     # val_file_list = 'D:/year3/DIP2021-FinalPJbaseline/TrainingTestingFileLists/shanghaitechpartB_full_origin_val.txt'
-    test_file_list = 'D:/year3/DIP2021-FinalPJbaseline/TrainingTestingFileLists/shanghaitechpartB_full_origin_test.txt'
+    # test_file_list = 'D:/year3/DIP2021-FinalPJbaseline/TrainingTestingFileLists/shanghaitechpartB_full_origin_test.txt'
     # train_dataloader = get_train_shanghaitechpartB_dataloader(labeled_file_list=train_file_list, use_flip=True, batch_size=1)
     # val_dataloader = get_test_shanghaitechpartB_dataloader(file_list=val_file_list)
     test_dataloader = get_test_shanghaitechpartB_dataloader(file_list=test_file_list)
