@@ -3,6 +3,8 @@ import torch.nn as nn
 import torch.nn.functional as F
 import torch.backends.cudnn as cudnn
 import torchvision
+from torchvision import transforms
+from matplotlib import pyplot as plt
 
 from models.CSRNet import CSRNet
 from datasets.shanghaitechparta_dataloader import get_train_shanghaitechpartA_dataloader, get_test_shanghaitechpartA_dataloader
@@ -77,6 +79,11 @@ if args.dataset == 'shanghaitech':
 
             epoch_mae += mae.item()
             epoch_rmse_loss += rmse.item()
+
+            unloader = transforms.ToPILImage()
+            gt_densitymap = gt_densitymap.squeeze(0)  # remove the fake batch dimension
+            gt_densitymap = unloader(gt_densitymap)
+            gt_densitymap.save('/home/featurize/work/DIP2021-FinalPJbaseline/graph/densitymap.jpg')
 
         epoch_mae /= len(test_loader.dataset)
         epoch_rmse_loss = math.sqrt(epoch_rmse_loss / len(test_loader.dataset))
