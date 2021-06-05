@@ -85,7 +85,12 @@ if args.dataset == 'shanghaitech':
             # gt_densitymap = gt_densitymap.squeeze(0)  # remove the fake batch dimension
             # gt_densitymap = unloader(gt_densitymap)
             # gt_densitymap.save('/home/featurize/work/DIP2021-FinalPJbaseline/graph/densitymap.jpg')
+            gt_densitymap=et_densitymap.squeeze(0).squeeze(0).cpu().numpy()
             plt.imshow(gt_densitymap, cmap = c.jet)
+            plt.imsave('/home/featurize/work/DIP2021-FinalPJbaseline/graph/gt_map.jpg', gt_densitymap)
+            et_densitymap=et_densitymap.squeeze(0).squeeze(0).cpu().numpy()
+            plt.imshow(et_densitymap, cmap = c.jet)
+            plt.imsave('/home/featurize/work/DIP2021-FinalPJbaseline/graph/et_map.jpg', et_densitymap)
             
             if i == 1:
                 break
