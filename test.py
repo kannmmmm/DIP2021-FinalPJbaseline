@@ -18,6 +18,7 @@ import errno
 import argparse
 import math
 from tqdm import tqdm
+from matplotlib import cm as c
 
 parser = argparse.ArgumentParser(description='Test crowdcounting model')
 
@@ -84,6 +85,10 @@ if args.dataset == 'shanghaitech':
             # gt_densitymap = gt_densitymap.squeeze(0)  # remove the fake batch dimension
             # gt_densitymap = unloader(gt_densitymap)
             # gt_densitymap.save('/home/featurize/work/DIP2021-FinalPJbaseline/graph/densitymap.jpg')
+            plt.imshow(gt_densitymap, cmap = c.jet)
+            
+            if i == 1:
+                break
 
         epoch_mae /= len(test_loader.dataset)
         epoch_rmse_loss = math.sqrt(epoch_rmse_loss / len(test_loader.dataset))
