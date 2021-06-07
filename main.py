@@ -17,6 +17,7 @@ from tensorboardX import SummaryWriter  # optional
 from optimizers.optimizers import init_optim
 
 from models.CSRNet import CSRNet
+from models.MCNN import MCNN
 
 from datasets.shanghaitechparta_dataloader import get_train_shanghaitechpartA_dataloader, get_test_shanghaitechpartA_dataloader
 from datasets.shanghaitechpartb_dataloader import get_train_shanghaitechpartB_dataloader, get_test_shanghaitechpartB_dataloader
@@ -99,6 +100,8 @@ def main():
         model = PSCNet()
     elif args.model == 'SPN':
         pass
+    elif args.model == 'MCNN':
+        model = MCNN()
 
     print("Currently using {} model".format(args.model))
 
@@ -208,7 +211,7 @@ def main():
                     torch.save({
                         'state_dict': model.state_dict(),
                         'epoch': epoch
-                    }, os.path.join(args.checkpoints, "partb.pth"))
+                    }, os.path.join(args.checkpoints, "mcnnpartb.pth"))
 
                 if epoch % 20 == 0:
                     torch.save({
