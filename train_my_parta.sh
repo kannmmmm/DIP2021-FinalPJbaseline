@@ -1,0 +1,14 @@
+python main.py --dataset shanghaitechpa \
+--model MyModel \
+--train-files /home/featurize/work/DIP2021-FinalPJbaseline/TrainingTestingFileLists/ShanghaiTechPartA_full_origin_train.txt \
+--val-files /home/featurize/work/DIP2021-FinalPJbaseline/TrainingTestingFileLists/ShanghaiTechPartA_full_origin_val.txt \
+--resume /home/featurize/work/DIP2021-FinalPJbaseline/checkpoints/demo/myparta.pth \
+--gpu-devices 2 \
+--lr 1e-6 \
+--train-batch 1 \
+--val-batch 1 \
+--optim adam \
+--loss mseloss \
+--checkpoints ./checkpoints/demo \
+--summary-write ./runs/demo \
+--save-txt myparta.txt

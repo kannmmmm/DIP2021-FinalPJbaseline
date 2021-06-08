@@ -1,6 +1,6 @@
 import torch
 import torch.nn as nn
-
+import torch.nn.functional as F
 
 class MCNN(nn.Module):
     '''
@@ -59,6 +59,7 @@ class MCNN(nn.Module):
         x3=self.branch3(img_tensor)
         x=torch.cat((x1,x2,x3),1)
         x=self.fuse(x)
+        x = F.interpolate(x, scale_factor=4, mode='bilinear', align_corners=True)
         return x
 
     def _initialize_weights(self):
@@ -71,3 +72,9 @@ class MCNN(nn.Module):
                 nn.init.constant_(m.weight, 1)
                 nn.init.constant_(m.bias, 0)
 
+# test code
+if __name__=="__main__":
+    img=torch.rand((1,3,800,1200),dtype=torch.float)
+    mcnn=MCNN()
+    out_dmap=mcnn(img)
+    print(out_dmap.shape)

@@ -11,6 +11,8 @@ import errno
 import argparse
 import math
 
+import logging
+
 from tqdm import tqdm
 from tensorboardX import SummaryWriter  # optional
 
@@ -18,12 +20,13 @@ from optimizers.optimizers import init_optim
 
 from models.CSRNet import CSRNet
 from models.MCNN import MCNN
+from models.MyModel import MyModel
 
 from datasets.shanghaitechparta_dataloader import get_train_shanghaitechpartA_dataloader, get_test_shanghaitechpartA_dataloader
 from datasets.shanghaitechpartb_dataloader import get_train_shanghaitechpartB_dataloader, get_test_shanghaitechpartB_dataloader
 
 # from loss.MixLoss import MixLoss
-# from pytorch_ssim import SSIM
+from losses.pytorch_ssim import SSIM
 
 
 
@@ -38,7 +41,7 @@ parser.add_argument('--resume', type=str, default='')
 parser.add_argument('--use-avai-gpus', action='store_true')
 parser.add_argument('--gpu-devices', type=str, default='0')
 
-parser.add_argument('--max-epoch', type=int, default=2000)
+parser.add_argument('--max-epoch', type=int, default=500)
 parser.add_argument('--optim', type=str, default='sgd')
 parser.add_argument('--lr', type=float, default=1e-05)
 parser.add_argument('--weight-decay', default=5e-04, type=float)
@@ -52,6 +55,24 @@ parser.add_argument('--summary-writer', type=str, default='./runs')
 parser.add_argument('--save-txt', type=str, default='train_log.txt')
 
 args = parser.parse_args()
+
+def get_logger(filename, verbosity=1, name=None):
+    level_dict = {0: logging.DEBUG, 1: logging.INFO, 2: logging.WARNING}
+    formatter = logging.Formatter(
+        "[%(asctime)s][%(filename)s][line:%(lineno)d][%(levelname)s] %(message)s"
+    )
+    logger = logging.getLogger(name)
+    logger.setLevel(level_dict[verbosity])
+
+    fh = logging.FileHandler(filename, "w")
+    fh.setFormatter(formatter)
+    logger.addHandler(fh)
+
+    sh = logging.StreamHandler()
+    sh.setFormatter(formatter)
+    logger.addHandler(sh)
+
+    return logger
 
 
 def mkdir_if_missing(directory):
@@ -102,6 +123,8 @@ def main():
         pass
     elif args.model == 'MCNN':
         model = MCNN()
+    elif args.model == 'MyModel':
+        model = MyModel()
 
     print("Currently using {} model".format(args.model))
 
@@ -140,12 +163,20 @@ def main():
         train_loader = get_train_shanghaitechpartB_dataloader(labeled_file_list=args.train_files, use_flip=True, batch_size=args.train_batch)
         val_loader = get_test_shanghaitechpartB_dataloader(file_list=args.val_files)
     else:
+        dataset_train = CrowdDataset(labeled_file_list=args.train_files)
+        dataset_val = CrowdDataset(labeled_file_list=args.train_files)
+        train_loader = dataloader=torch.utils.data.DataLoader(dataset_train,batch_size=args.train_batch,shuffle=True)
+        val_loader = dataloader=torch.utils.data.DataLoader(dataset_val,batch_size=args.train_batch,shuffle=True)
         pass
 
     min_mae = sys.maxsize
     min_mae_epoch = -1
 
     writer = SummaryWriter(args.summary_writer)
+
+    logger = get_logger('./checkpoints/demo/mcnnparta.log')
+
+    logger.info('start training!')
 
     with open(os.path.join(args.checkpoints, args.save_txt), 'a') as f:
         for epoch in range(start_epoch, start_epoch + args.max_epoch):
@@ -162,6 +193,8 @@ def main():
                 # else:
                 #     et_densitymap = model(label_image)
                 et_densitymap = model(label_image)
+                # print(et_densitymap.size())
+                # print(gt_densitymap.size())
 
 
                 if args.loss == 'mseloss':
@@ -169,7 +202,9 @@ def main():
                 elif args.loss == 'mixloss':
                     pass
                 elif args.loss == 'ssimloss':
-                    # loss = 1 - total_criterion(gt_densitymap, et_densitymap)
+                    loss = 1 - total_criterion(gt_densitymap, et_densitymap)
+                    # pass
+                else:
                     pass
 
                 epoch_loss += loss.item()
@@ -181,7 +216,7 @@ def main():
             # print(optimizer.param_groups[0]['lr'])
             # scheduler.step()
 
-
+            logger.info('Epoch:[{}]\t loss={:.5f}\t'.format(epoch , epoch_loss / len(train_loader.dataset)))
             writer.add_scalar('Train_Loss', epoch_loss / len(train_loader.dataset), epoch)
             f.write("epoch: " + str(epoch) + " training_loss: " + str(epoch_loss / len(train_loader.dataset)) + "\n")
             print("epoch: ", epoch, " training_loss: ", epoch_loss / len(train_loader.dataset))
@@ -211,7 +246,7 @@ def main():
                     torch.save({
                         'state_dict': model.state_dict(),
                         'epoch': epoch
-                    }, os.path.join(args.checkpoints, "mcnnpartb.pth"))
+                    }, os.path.join(args.checkpoints, "mcnnparta.pth"))
 
                 if epoch % 20 == 0:
                     torch.save({
@@ -220,6 +255,7 @@ def main():
                     }, os.path.join(args.checkpoints, str(epoch) + ".pth"))
 
                 writer.add_scalar('Val_MAE', epoch_mae, epoch)
+                logger.info('Epoch:[{}]\t bestmae={:.5f}\t testmae={:.5f}\t testrmse={:.5f}\t'.format(epoch , min_mae, epoch_mae, epoch_rmse_loss))
                 print("epoch: ", epoch, " bestmae: ", min_mae, "testmae: ", epoch_mae, " testrmse: ", epoch_rmse_loss)
 
     f.close()
@@ -230,3 +266,4 @@ if __name__ == '__main__':
     print(torch.cuda.device_count())
     print(torch.cuda.is_available())
     main()
+    os.system('featurize instance release 581fe05a-e86d-4173-9af9-0d9a169d799c ')

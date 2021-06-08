@@ -7,6 +7,8 @@ from torchvision import transforms
 from matplotlib import pyplot as plt
 
 from models.CSRNet import CSRNet
+from models.MyModel import MyModel
+from models.MCNN import MCNN
 from datasets.shanghaitechparta_dataloader import get_train_shanghaitechpartA_dataloader, get_test_shanghaitechpartA_dataloader
 
 # from nwpudataloader import create_test_nwpu_dataloader
@@ -55,6 +57,10 @@ elif args.dataset == 'nwpu':
 
 if args.model == 'CSRNet':
     model = CSRNet().cuda()
+elif args.model == 'MyModel':
+    model = MyModel().cuda()
+elif args.model == 'MCNN':
+    model = MCNN().cuda()
 
 if os.path.isfile(args.best_model):
     pkl = torch.load(args.best_model)
@@ -81,18 +87,18 @@ if args.dataset == 'shanghaitech':
             epoch_mae += mae.item()
             epoch_rmse_loss += rmse.item()
 
-            # unloader = transforms.ToPILImage()
-            # gt_densitymap = gt_densitymap.squeeze(0)  # remove the fake batch dimension
-            # gt_densitymap = unloader(gt_densitymap)
-            # gt_densitymap.save('/home/featurize/work/DIP2021-FinalPJbaseline/graph/densitymap.jpg')
+
             gt_densitymap=gt_densitymap.squeeze(0).squeeze(0).cpu().numpy()
             plt.imshow(gt_densitymap, cmap = c.jet)
-            plt.imsave('/home/featurize/work/DIP2021-FinalPJbaseline/graph/gt_map.jpg', gt_densitymap, dpi = 300)
+            plt.imsave('/home/featurize/work/DIP2021-FinalPJbaseline/graph/myagt_map' + str(i) + '.jpg', gt_densitymap, dpi = 300)
             et_densitymap=et_densitymap.squeeze(0).squeeze(0).cpu().numpy()
             plt.imshow(et_densitymap, cmap = c.jet)
-            plt.imsave('/home/featurize/work/DIP2021-FinalPJbaseline/graph/et_map.jpg', et_densitymap, dpi = 300)
+            plt.imsave('/home/featurize/work/DIP2021-FinalPJbaseline/graph/myaet_map' + str(i) + '.jpg', et_densitymap, dpi = 300)
+            print(data['imagepath'])
+            print(gt_densitymap.sum())
+            print(et_densitymap.sum())
             
-            if i == 1:
+            if i == 4:
                 break
 
         epoch_mae /= len(test_loader.dataset)

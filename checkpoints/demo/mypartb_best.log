@@ -1,0 +1,41 @@
+[2021-06-07 23:45:22,249][main.py][line:179][INFO] start training!
+[2021-06-07 23:45:39,978][main.py][line:219][INFO] Epoch:[157]	 loss=0.48987	
+[2021-06-07 23:45:47,854][main.py][line:258][INFO] Epoch:[157]	 bestmae=27.56574	 testmae=27.56574	 testrmse=37.59180	
+[2021-06-07 23:46:05,331][main.py][line:219][INFO] Epoch:[158]	 loss=0.47900	
+[2021-06-07 23:46:13,133][main.py][line:258][INFO] Epoch:[158]	 bestmae=26.35646	 testmae=26.35646	 testrmse=33.00201	
+[2021-06-07 23:46:30,675][main.py][line:219][INFO] Epoch:[159]	 loss=0.48129	
+[2021-06-07 23:46:38,535][main.py][line:258][INFO] Epoch:[159]	 bestmae=25.13875	 testmae=25.13875	 testrmse=34.05881	
+[2021-06-07 23:46:56,102][main.py][line:219][INFO] Epoch:[160]	 loss=0.48027	
+[2021-06-07 23:47:04,126][main.py][line:258][INFO] Epoch:[160]	 bestmae=19.24805	 testmae=19.24805	 testrmse=24.20827	
+[2021-06-07 23:47:21,743][main.py][line:219][INFO] Epoch:[161]	 loss=0.47767	
+[2021-06-07 23:47:29,491][main.py][line:258][INFO] Epoch:[161]	 bestmae=19.24805	 testmae=36.35444	 testrmse=40.06159	
+[2021-06-07 23:47:47,198][main.py][line:219][INFO] Epoch:[162]	 loss=0.47658	
+[2021-06-07 23:47:54,919][main.py][line:258][INFO] Epoch:[162]	 bestmae=19.24805	 testmae=87.66671	 testrmse=94.82236	
+[2021-06-07 23:48:12,623][main.py][line:219][INFO] Epoch:[163]	 loss=0.47763	
+[2021-06-07 23:48:20,378][main.py][line:258][INFO] Epoch:[163]	 bestmae=19.24805	 testmae=57.33075	 testrmse=60.66195	
+[2021-06-07 23:48:38,138][main.py][line:219][INFO] Epoch:[164]	 loss=0.48060	
+[2021-06-07 23:48:45,956][main.py][line:258][INFO] Epoch:[164]	 bestmae=19.24805	 testmae=61.72882	 testrmse=65.61440	
+[2021-06-07 23:49:03,705][main.py][line:219][INFO] Epoch:[165]	 loss=0.47633	
+[2021-06-07 23:49:11,508][main.py][line:258][INFO] Epoch:[165]	 bestmae=19.24805	 testmae=19.33621	 testrmse=23.27796	
+[2021-06-07 23:49:29,323][main.py][line:219][INFO] Epoch:[166]	 loss=0.47509	
+[2021-06-07 23:49:37,301][main.py][line:258][INFO] Epoch:[166]	 bestmae=16.26061	 testmae=16.26061	 testrmse=20.63186	
+[2021-06-07 23:49:55,106][main.py][line:219][INFO] Epoch:[167]	 loss=0.47965	
+[2021-06-07 23:50:02,975][main.py][line:258][INFO] Epoch:[167]	 bestmae=16.26061	 testmae=87.37211	 testrmse=93.90588	
+[2021-06-07 23:50:20,750][main.py][line:219][INFO] Epoch:[168]	 loss=0.47567	
+[2021-06-07 23:50:28,683][main.py][line:258][INFO] Epoch:[168]	 bestmae=12.60309	 testmae=12.60309	 testrmse=15.99785	
+[2021-06-07 23:50:46,516][main.py][line:219][INFO] Epoch:[169]	 loss=0.47618	
+[2021-06-07 23:50:54,404][main.py][line:258][INFO] Epoch:[169]	 bestmae=12.60309	 testmae=70.31581	 testrmse=74.46200	
+[2021-06-07 23:51:12,196][main.py][line:219][INFO] Epoch:[170]	 loss=0.47670	
+[2021-06-07 23:51:20,038][main.py][line:258][INFO] Epoch:[170]	 bestmae=12.60309	 testmae=30.59782	 testrmse=41.90276	
+[2021-06-07 23:51:37,838][main.py][line:219][INFO] Epoch:[171]	 loss=0.47452	
+[2021-06-07 23:51:45,596][main.py][line:258][INFO] Epoch:[171]	 bestmae=12.60309	 testmae=22.08305	 testrmse=26.54393	
+[2021-06-07 23:52:03,449][main.py][line:219][INFO] Epoch:[172]	 loss=0.47405	
+[2021-06-07 23:52:11,353][main.py][line:258][INFO] Epoch:[172]	 bestmae=12.60309	 testmae=131.61295	 testrmse=139.26323	
+[2021-06-07 23:52:29,138][main.py][line:219][INFO] Epoch:[173]	 loss=0.47584	
+[2021-06-07 23:52:37,032][main.py][line:258][INFO] Epoch:[173]	 bestmae=12.60309	 testmae=17.51749	 testrmse=21.37574	
+[2021-06-07 23:52:54,816][main.py][line:219][INFO] Epoch:[174]	 loss=0.47485	
+[2021-06-07 23:53:02,547][main.py][line:258][INFO] Epoch:[174]	 bestmae=12.60309	 testmae=122.05079	 testrmse=125.57489	
+[2021-06-07 23:53:20,509][main.py][line:219][INFO] Epoch:[175]	 loss=0.47217	
+[2021-06-07 23:53:28,425][main.py][line:258][INFO] Epoch:[175]	 bestmae=12.60309	 testmae=39.89456	 testrmse=56.44536	
+[2021-06-07 23:53:46,221][main.py][line:219][INFO] Epoch:[176]	 loss=0.47423	
+[2021-06-07 23:53:54,282][main.py][line:258][INFO] Epoch:[176]	 bestmae=12.60309	 testmae=19.19170	 testrmse=25.00445	
