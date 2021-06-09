@@ -88,18 +88,18 @@ if args.dataset == 'shanghaitech':
             epoch_rmse_loss += rmse.item()
 
 
-            gt_densitymap=gt_densitymap.squeeze(0).squeeze(0).cpu().numpy()
-            plt.imshow(gt_densitymap, cmap = c.jet)
-            plt.imsave('/home/featurize/work/DIP2021-FinalPJbaseline/graph/myagt_map' + str(i) + '.jpg', gt_densitymap, dpi = 300)
-            et_densitymap=et_densitymap.squeeze(0).squeeze(0).cpu().numpy()
-            plt.imshow(et_densitymap, cmap = c.jet)
-            plt.imsave('/home/featurize/work/DIP2021-FinalPJbaseline/graph/myaet_map' + str(i) + '.jpg', et_densitymap, dpi = 300)
-            print(data['imagepath'])
-            print(gt_densitymap.sum())
-            print(et_densitymap.sum())
+            # gt_densitymap=gt_densitymap.squeeze(0).squeeze(0).cpu().numpy()
+            # plt.imshow(gt_densitymap, cmap = c.jet)
+            # plt.imsave('/home/featurize/work/DIP2021-FinalPJbaseline/graph/myagt_map' + str(i) + '.jpg', gt_densitymap, dpi = 300)
+            # et_densitymap=et_densitymap.squeeze(0).squeeze(0).cpu().numpy()
+            # plt.imshow(et_densitymap, cmap = c.jet)
+            # plt.imsave('/home/featurize/work/DIP2021-FinalPJbaseline/graph/myaet_map' + str(i) + '.jpg', et_densitymap, dpi = 300)
+            # print(data['imagepath'])
+            # print(gt_densitymap.sum())
+            # print(et_densitymap.sum())
             
-            if i == 4:
-                break
+            # if i == 4:
+            #     break
 
         epoch_mae /= len(test_loader.dataset)
         epoch_rmse_loss = math.sqrt(epoch_rmse_loss / len(test_loader.dataset))

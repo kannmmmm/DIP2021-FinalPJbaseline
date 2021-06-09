@@ -163,10 +163,6 @@ def main():
         train_loader = get_train_shanghaitechpartB_dataloader(labeled_file_list=args.train_files, use_flip=True, batch_size=args.train_batch)
         val_loader = get_test_shanghaitechpartB_dataloader(file_list=args.val_files)
     else:
-        dataset_train = CrowdDataset(labeled_file_list=args.train_files)
-        dataset_val = CrowdDataset(labeled_file_list=args.train_files)
-        train_loader = dataloader=torch.utils.data.DataLoader(dataset_train,batch_size=args.train_batch,shuffle=True)
-        val_loader = dataloader=torch.utils.data.DataLoader(dataset_val,batch_size=args.train_batch,shuffle=True)
         pass
 
     min_mae = sys.maxsize
@@ -266,4 +262,3 @@ if __name__ == '__main__':
     print(torch.cuda.device_count())
     print(torch.cuda.is_available())
     main()
-    os.system('featurize instance release 581fe05a-e86d-4173-9af9-0d9a169d799c ')

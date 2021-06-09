@@ -15,7 +15,7 @@ This pipeline is a simple framework for crowd counting task including four folde
 - train.sh: You can run ```sh ./train.sh```	to launch training.
 - datasets: This folder contains dataloaders from different datasets.
 - losses: This folder contains different customized loss functions if needed.
-- models: This folder contains different models. CSRNet is provided here.
+- models: This folder contains different models. **MyModel** is here.
 - optimizers: This folder contains different optimzers.
 - Make_Datasets: This folder contains density map generation codes.
 
@@ -34,26 +34,17 @@ After all density maps are generated, run ```ls -R /xx/xxx/xxx/*.jpg > train.txt
 
 - Training
 
-run ```sh ./train.sh``` or run the following command.
-```
-python main.py --dataset shanghaitechpa \
---model CSRNet \
---train-files /home/jqgao/workspace/CrowdCounting/TrainingTestingFileLists/ShanghaiTechPartA_full_origin_train.txt \
---val-files /home/jqgao/workspace/CrowdCounting/TrainingTestingFileLists/ShanghaiTechPartA_full_origin_val.txt \
---gpu-devices 4 \
---lr 1e-5 \
---optim adam \
---loss mseloss \
---checkpoints ./checkpoints/demo \
---summary-writer ./runs/demo
-```
+For ShanghaiTech PartA, run ```sh ./train_my_parta.sh```.
+
+For ShanghaiTech PartB, run ```sh ./train_my_partb.sh```.
 
 - Testing
 
-run the following command.
-```
-python test.py --test-files /home/featurize/work/DIP2021-FinalPJbaseline/CrowdCounting/TrainingTestingFileLists/ShanghaiTechPartA_full_origin_test.txt --best-model /home/featurize/work/DIP2021-FinalPJbaseline/checkpoints/demo/bestvalmodel.pth
-```
+For ShanghaiTech PartA, run ```sh ./test_my_parta.sh```.
+
+For ShanghaiTech PartB, run ```sh ./test_my_partb.sh```.
+
+**You need to modify the path before you run the training/testing.**
 
 # NWPU-Crowd Contest Platform
 https://www.crowdbenchmark.com/nwpucrowd.html
